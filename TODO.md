@@ -17,7 +17,7 @@
 
 ## Authentication, Session & Biometrics
 
-- [x] Trace user registration, login, and OAuth2 / token refresh flows
+- [ ] Trace user registration, login, and OAuth2 / token refresh flows
 - [ ] Analyze payment password (contraseña de pago) and PIN verification mechanisms
 - [x] Trace biometric / fingerprint authentication (`USE_BIOMETRIC`, `USE_FINGERPRINT`) and Android Keystore usage
 
@@ -30,15 +30,15 @@
 
 ## Core Wallet, Bank Cards & P2P Transfers
 
-- [x] Trace bank card registration, validation, balance inquiry, and statement consultation (BPA, BANDEC, Metropolitano, BFI)
-- [x] Trace P2P transfers (card-to-card, phone/alias lookup, QR-based transfer)
+- [ ] Trace bank card registration, validation, balance inquiry, and statement consultation (BPA, BANDEC, Metropolitano, BFI)
+- [ ] Trace P2P transfers (card-to-card, phone/alias lookup, QR-based transfer)
 - [ ] Map contact integration (`READ_CONTACTS`) and beneficiary management
 
 ## QR Operations, Commerce & ENZONA-TPV Interoperability
 
-- [x] Analyze QR payload format (static vs. dynamic QR codes for merchant payments and P2P transfers)
+- [ ] Analyze QR payload format (static vs. dynamic QR codes for merchant payments and P2P transfers)
 - [ ] Trace merchant payment confirmation, refund flows, and compatibility with ENZONA-TPV (`ENZONA-TPV` POS workflows)
-- [x] Trace Boulevard / virtual store e-commerce checkout and deep-link handling
+- [ ] Trace Boulevard / virtual store e-commerce checkout and deep-link handling
 - [x] Document findings in `docs/ecommerce.md`
 
 ## Utility & Public Service Payments
@@ -52,8 +52,8 @@
 
 ## Local Storage & Persistence
 
-- [x] Identify local database engine (SQLite / Room / Realm / ORMLite) and extract table schemas and migrations
-- [x] Audit `SharedPreferences` and encrypted storage files for tokens, credentials, and cached user state
+- [ ] Identify local database engine (SQLite / Room / Realm / ORMLite) and extract table schemas and migrations
+- [ ] Audit `SharedPreferences` and encrypted storage files for tokens, credentials, and cached user state
 - [x] Document findings in `docs/storage.md`
 
 ## Security & Cryptography
@@ -65,11 +65,16 @@
 
 ## Domain Model & Clean Java Reconstruction
 
-- [x] Catalog domain entities, API DTOs, and enums in `docs/domain-model.md`
+- [ ] Catalog domain entities, API DTOs, and enums in `docs/domain-model.md`
 - [x] Classify unlinked main-package sources in `docs/unmapped-source-review.md`
 - [x] Populate `mappings/classes.json` with verified obfuscated-to-clean class mappings
 - [x] Reconstruct clean Java classes under `app/src/main/java/` with `@obfuscated_class` annotations
 - [ ] Set up local `target-bytecode.jar` with dex2jar and run `make compile-audit` (`docs/java-compilation.md`)
+
+## Flutter AOT (`libapp.so`) Dart Reconstruction
+
+- [ ] Run Blutter / Dart AOT snapshot analysis on `lib/arm64-v8a/libapp.so` to recover class/method symbols and object pool
+- [ ] Reconstruct Dart API client, DTO models, and state management flows from `libapp.so` disassembly
 
 ## Dynamic Validation (When Emulator Available)
 

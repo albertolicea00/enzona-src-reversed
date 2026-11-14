@@ -12,3 +12,4 @@
 - Reconstructed clean `app/src/main/java/cu/xetid/apk/enzona/{MainActivity,BuildConfig}.java` (ECDSA `secp256r1` MethodChannel bridge) and populated `mappings/classes.json`.
 - Extracted `api.enzona.net` and `identity.enzona.net` endpoints from `lib/arm64-v8a/libapp.so` and documented findings across `docs/*.md`.
 - Tagged baseline release `1.11.0.20003-v1.0`.
+- Updated `scripts/update-progress.py` to combine `TODO.md` completion (`22/45`, `48%`) with `scripts/mapping-stats.sh` (`2/3` Java wrapper links, `66%`, `57%` overall), unchecked uncompleted Flutter AOT (`libapp.so`) Dart reconstruction tasks in `TODO.md`, and updated `README.md` with observed `make stats` counts (`source_files: 3`, `clean_files: 2`, `single_candidate: 2`, `unlinked: 1`, `mapping_issues: 0`).
