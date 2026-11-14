@@ -1,0 +1,21 @@
+# Repository guide
+- Goal: reverse engineer the ENZONA Android client (`cu.xetid.apk.enzona`) developed by XETID for interoperability, protocol analysis, and security research.
+- Structure: `app/` holds clean reconstructed source and resources; `src/` holds tracked raw JADX output (obfuscated); `mappings/` holds obfuscated-to-clean name mappings; `smali/` holds local, Git-ignored disassembly; `scripts/` holds tooling; `docs/` holds topic-specific notes.
+- `.workspace/bin/` holds local APK inputs; `.workspace/archives/` holds local versioned smali ZIPs; `.workspace/handoff.md` is a temporary, versioned pause/resume note; `README.md` shows the current target metadata and official references; `CHANGELOG.md` tracks substantive project changes.
+- `docs/target-metadata.md`: how to extract package, version, SDK levels, and SHA-256 from an APK.
+- `docs/versioning.md`: `<APK versionName>.<versionCode>-v<internal version>` release/tag scheme, local smali archives, and cross-version diffing.
+- `docs/architecture.md`: manifest components, permissions, navigation structure, dependencies, obfuscation, and bundled assets.
+- `docs/ecommerce.md`: QR payload formats, Boulevard e-commerce checkout, utility payments, and `ENZONA-TPV` merchant POS interoperability.
+- `docs/networking.md`: HTTP stack, OAuth2 interceptors, `*.enzona.net` API gateway endpoints, and TLS/certificate pinning.
+- `docs/security.md`: authentication, payment password, biometrics, cryptography, and manifest/component security assessment.
+- `docs/storage.md`: local SQLite/Room/Realm/ORMLite schema, entities, migrations, and SharedPreferences.
+- `docs/domain-model.md`: entity catalog (bank cards, wallet, P2P transfers, QR payments, utility bills) and enum mappings.
+- `docs/reconstruction-inventory.md`: reproducible source-to-clean review queue, duplicate candidates, mapping conflicts, and coverage limits.
+- `docs/unmapped-source-review.md`: per-class classification ledger for unlinked main-package sources; records application behavior, generated/library/support code, role, and evidence.
+- `docs/java-compilation.md`: reproducible dependency-backed Java compiler audit and limits of APK-derived classpaths.
+- `docs/runtime-validation.md`: local hybrid-APK build and isolated emulator observations, scope, and outstanding runtime checks.
+- `.workspace/handoff.md`: current pause/resume handoff; update it when stopping work and remove it when work resumes.
+- `mappings/classes.json`: obfuscated → clean class/field/enum name mappings with roles and confidence.
+- Keep detailed procedures in separate `docs/*.md` files and add a one-line summary and link here for each new document.
+- Read only the documentation relevant to the current task.
+- Update `CHANGELOG.md` for every completed change; put the date, APK filename, and SHA-256 in each analysis session's `##` heading.

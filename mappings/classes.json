@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "package": "cu.xetid.apk.enzona",
+    "apk_version": "1.11.0",
+    "version_code": 20003,
+    "format": "obfuscated → clean mapping",
+    "notes": "Derived from static analysis of JADX decompiled source (pending initial decompilation)"
+  },
+  "classes": {}
+}

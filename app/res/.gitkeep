@@ -1,0 +1,2 @@
+# Extracted Resources Placeholder
+Run `make decompile` to populate `app/res/` from the target APK.

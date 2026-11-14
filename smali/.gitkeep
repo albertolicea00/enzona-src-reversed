@@ -1,0 +1,2 @@
+# Local Smali Disassembly Placeholder
+Run `make decompile` to populate `smali/` with Apktool disassembly (ignored by Git).

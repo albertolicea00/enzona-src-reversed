@@ -1,0 +1,2 @@
+# Extracted Assets Placeholder
+Run `make decompile` to populate `app/assets/` from the target APK.
