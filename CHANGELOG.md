@@ -7,3 +7,4 @@
 - Added `Makefile` and 7 analysis toolchain scripts (`verify-apk.sh`, `decompile.sh`, `search-strings.sh`, `mapping-stats.sh`, `reconstruction-inventory.py`, `update-progress.py`, `compile-reconstruction.py`).
 - Created full 12-document template set in `docs/` (`target-metadata.md`, `versioning.md`, `architecture.md`, `ecommerce.md`, `networking.md`, `security.md`, `storage.md`, `domain-model.md`, `reconstruction-inventory.md`, `unmapped-source-review.md`, `java-compilation.md`, `runtime-validation.md`).
 - Updated `README.md`, `AGENTS.md`, and `TODO.md` with documentation links and reference links (`enzona.net`, `APK_EnZona`, `ENZONA-TPV_(apk)` on EcuRed).
+- Added a `Related Repositories` cross-reference table in `README.md` linking all six Cuban Android reverse-engineering repositories.
