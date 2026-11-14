@@ -4,7 +4,20 @@
     "apk_version": "1.11.0",
     "version_code": 20003,
     "format": "obfuscated → clean mapping",
-    "notes": "Derived from static analysis of JADX decompiled source (pending initial decompilation)"
+    "notes": "Android native Flutter host mapping; Dart business logic resides in libapp.so (arm64-v8a/armeabi-v7a/x86_64)"
   },
-  "classes": {}
+  "classes": {
+    "cu.xetid.apk.enzona.MainActivity": {
+      "clean": "cu.xetid.apk.enzona.MainActivity",
+      "role": "FlutterFragmentActivity hosting MethodChannel cu.xetid.apk.enzona/methods (ECDSA secp256r1 signing, APN/carrier/version info)",
+      "status": "reconstructed",
+      "confidence": "high"
+    },
+    "cu.xetid.apk.enzona.BuildConfig": {
+      "clean": "cu.xetid.apk.enzona.BuildConfig",
+      "role": "Generated build metadata constants (VERSION_NAME=1.11.0, VERSION_CODE=20003)",
+      "status": "reconstructed",
+      "confidence": "high"
+    }
+  }
 }
