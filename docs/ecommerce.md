@@ -1,13 +1,29 @@
-# E-Commerce, QR Payments & ENZONA-TPV Interoperability
+# E-Commerce, Transfers & QR Operations
 
-Target: `cu.xetid.apk.enzona` v1.11.0 (versionCode `20003`).
+API endpoints and native capabilities extracted from `libapp.so` and `MainActivity.java` for ENZONA (`cu.xetid.apk.enzona`).
 
-> [!NOTE]
-> **Status:** Structural template (pending decompilation). Document QR payment payloads, Boulevard checkout flows, and ENZONA-TPV merchant interoperability once decompiled.
+## Observed `api.enzona.net` Service Modules (`libapp.so`)
 
-## Pending Analysis Sections
+- **Bulevar Virtual Stores**: `https://api.enzona.net/bulevar/1.0/tiendas/allTiendas`
+- **Bank Cards & PIN Activation (`cards`, `coremz`)**:
+  - `https://api.enzona.net/cards/v1.0.0/cards/default`
+  - `https://api.enzona.net/coremz/1.0.2/card`
+  - `https://api.enzona.net/coremz/1.0.2/card/card/activate/pin`
+- **P2P & Fincimex Transfers (`transfer`, `coremz`)**:
+  - `https://api.enzona.net/transfer/v1.0.0/transfer/account`
+  - `https://api.enzona.net/transfer/v1.0.0/transfer/card`
+  - `https://api.enzona.net/coremz/1.0.2/transfer/fincimex`
+- **QR & Merchant Payments (`qr`, `payment`, `invoice`)**:
+  - `https://api.enzona.net/qr/v1.0.0/qr/account`
+  - `https://api.enzona.net/coremz/1.0.2/qr/postFincimex`
+  - `https://api.enzona.net/payment/v1.0.0/payments/vendor/code`
+  - `https://api.enzona.net/invoice/v1.0.0/client-id`
+  - `https://api.enzona.net/invoice/v1.0.0/invoice/payment`
+- **Beneficiaries & Nomenclators**:
+  - `https://api.enzona.net/recipent/1.0.1/recipient/add`, `.../setRecipient`
+  - `https://api.enzona.net/contact/1.0/api/account/contact-add`, `.../contact-remove-request`
+  - `https://api.enzona.net/nomenclator/v1.0.0/nomenclator/banks`, `.../coordinates`
 
-- **QR Code Payload Specification:** Static vs. dynamic QR formats for P2P transfers and merchant point-of-sale (`ENZONA-TPV`) payments.
-- **Merchant & TPV Operations:** Payment confirmation, transaction verification, cashiers, and refund flows.
-- **Boulevard E-Commerce Checkout:** Deep links, virtual store order creation, payment confirmation, and callback handling.
-- **Utility & Public Service Payments:** Electricity (UNE), water, telephone/ETECSA, gas (Cupet), ONAT tax obligations, and postal money orders (Correos de Cuba).
+## QR Scanning
+
+- Supports dual scanning stacks in `AndroidManifest.xml`: Huawei ScanKit (`com.huawei.hms.hmsscankit.ScanKitActivity`) and ZXing (`com.journeyapps.barcodescanner.CaptureActivity`).
