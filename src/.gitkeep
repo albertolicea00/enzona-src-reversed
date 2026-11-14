@@ -1,2 +1,0 @@
-# Raw JADX Output Placeholder
-Run `make decompile` to populate `src/` with raw JADX Java output from the target APK.
