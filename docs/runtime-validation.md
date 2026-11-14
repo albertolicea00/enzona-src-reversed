@@ -1,17 +1,14 @@
-# Local Android runtime validation
+# Runtime Validation
 
-Target: `cu.xetid.apk.enzona-v20003.apk`, SHA-256
-`9125313c01eb522522c2a1e312c62ad09a81193bc5b427a36b34114c701a4c0c`.
+Scope and status of dynamic/runtime validation for **ENZONA** (`cu.xetid.apk.enzona` v1.11.0, `versionCode` `20003`).
 
-## Scope and safety rules
+## Static Verification Completed
 
-When performing dynamic or hybrid-APK validation in an Android emulator:
+- `make verify` confirmed package `cu.xetid.apk.enzona`, `versionName` `1.11.0`, `versionCode` `20003`, `minSdkVersion` `21`, `targetSdkVersion` `33`, `compileSdkVersion` `34`, and APK SHA-256 `9125313c01eb522522c2a1e312c62ad09a81193bc5b427a36b34114c701a4c0c`.
+- JADX 1.5.6 extracted all 3 classes in `cu.xetid.apk.enzona.*`.
+- Apktool 3.0.3 decoded `AndroidManifest.xml`, 92 XML resources, `flutter_assets` manifests, and native libraries (`libapp.so`, `libflutter.so`, `libscannative.so`, `libmsoptimize.so`).
+- Extracted `api.enzona.net` and `identity.enzona.net` endpoints directly from `lib/arm64-v8a/libapp.so`.
 
-1. Use an isolated Android Virtual Device (AVD) dedicated to research.
-2. Disable radio/network connectivity or isolate traffic unless explicitly inspecting local protocol framing.
-3. Do not submit live user credentials, bank card numbers, payment passwords, or unauthorized requests to production `*.enzona.net` servers.
-4. Keep all modified/hybrid APKs, UI hierarchy dumps, screenshots, and logcat captures inside `.workspace/` (excluded from Git).
+## Outstanding Runtime Checks
 
-## Observed results
-
-Pending decompilation and initial static analysis. Record emulator environment, API level, startup behavior, and screen hierarchy comparisons here once dynamic checks are performed.
+- Dart AOT symbol recovery on `libapp.so` via `blutter` + `ghidra` and Frida BoringSSL TLS hooking on `libflutter.so` to inspect live JSON request/response schemas.
