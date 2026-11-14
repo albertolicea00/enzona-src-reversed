@@ -1,12 +1,13 @@
-# Local Storage
+# Local Storage & Persistence
 
-Target: `cu.xetid.apk.enzona` v1.11.0 (versionCode `20003`).
+Analysis of local storage mechanisms in `cu.xetid.apk.enzona`.
 
-> [!NOTE]
-> **Status:** Structural template (pending decompilation). Document SQLite/Room/ORM schemas, migrations, and preferences once decompiled.
+## Native Android Layer
 
-## Pending Analysis Sections
+- `MainActivity.java` declares `PREFS_NAME = "MyAppPrefs"` and queries `content://telephony/carriers/preferapn` (`getActiveApnName()`) when `READ_PHONE_STATE` is granted.
+- `AndroidManifest.xml` bundles `androidx.room.MultiInstanceInvalidationService` and `androidx.work` WorkManager (`flutter_downloader` background downloads), plus `com.pichillilorenzo.flutter_inappwebview_android` (`URLCredentialContract`).
+- `requestLegacyExternalStorage="true"` and `WRITE_EXTERNAL_STORAGE` / `READ_EXTERNAL_STORAGE` are declared for saving/sharing QR receipts and downloaded APK updates (`file_paths.xml`, `filepaths.xml`, `flutter_image_picker_file_paths.xml`, `image_share_filepaths.xml`).
 
-- **Database Engine & ORM:** Room, SQLiteOpenHelper, ORMLite, or Realm configuration, database filenames, and schema version numbers.
-- **Tables & Entities:** Bank cards, transactions, beneficiaries/contacts, cached invoices, and user profile tables.
-- **SharedPreferences:** Preference file names, OAuth2 tokens, biometric flags, and session state keys.
+## Flutter Layer
+
+- Core user session tokens, ECDSA private keys (`pvKey`), and cached wallet state are managed in Dart AOT (`libapp.so`) via Flutter plugins (SharedPreferences / SQLite / secure storage plugins).
